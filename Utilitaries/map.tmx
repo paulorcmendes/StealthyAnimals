@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="100" tileheight="100" nextobjectid="1">
- <tileset firstgid="1" name="spritesheet" tilewidth="100" tileheight="100" tilecount="4" columns="2">
-  <image source="spritesheet.png" trans="ff00ff" width="200" height="200"/>
+ <tileset firstgid="1" name="spritesheet" tilewidth="100" tileheight="100" tilecount="6" columns="2">
+  <image source="spritesheet.png" trans="ff00ff" width="200" height="300"/>
  </tileset>
  <layer name="Camada de Tiles 1" width="16" height="9">
   <data encoding="csv">
 3,3,3,3,1,1,1,1,1,1,2,2,1,1,1,1,
-3,4,4,3,1,1,1,1,4,4,3,2,2,1,1,1,
-3,4,4,3,1,1,1,1,3,4,4,3,2,1,1,1,
+3,4,4,3,1,1,1,1,4,4,3,2,2,1,1,5,
+3,4,4,3,1,1,1,1,3,4,4,3,2,1,1,5,
 3,4,4,3,1,1,1,1,3,3,4,3,2,2,1,1,
 3,3,3,3,1,1,1,1,1,3,4,4,3,2,1,1,
 1,1,1,1,1,1,1,3,3,3,3,3,2,2,1,1,

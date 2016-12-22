@@ -6,13 +6,15 @@ using UnityEngine;
  * 1 - Sand
  * 2 - Rock
  * 3 - Sand
+ * 4 - Exit
  */
-public enum TerrainType{Grass, Sand, Rock, Box};
+public enum TerrainType{Grass, Sand, Rock, Box, Exit};
 public class TerrainGenerator : MonoBehaviour {
 	public GameObject grassPrefab;
 	public GameObject sandPrefab;
 	public GameObject rockPrefab;
 	public GameObject boxPrefab;
+	public GameObject exitPrefab;
 
 	public TerrainType[,] terrainMatrix;
 	public uint terrainColumns;
@@ -49,6 +51,9 @@ public class TerrainGenerator : MonoBehaviour {
 				case "3":
 					terrainMatrix [(terrainRows-1)-i, j] = TerrainType.Box;
 					break;
+				case "4":
+					terrainMatrix [(terrainRows-1)-i, j] = TerrainType.Exit;
+					break;
 				}
 			}
 		}
@@ -70,6 +75,9 @@ public class TerrainGenerator : MonoBehaviour {
 					break;
 				case TerrainType.Box:
 					boxPrefab.Spawn (new Vector3 (j, i, 1));
+					break;
+				case TerrainType.Exit:
+					exitPrefab.Spawn (new Vector3 (j, i, 1));
 					break;
 				}
 			}

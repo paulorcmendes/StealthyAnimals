@@ -37,13 +37,13 @@
      inkscape:window-height="1027"
      id="namedview392"
      showgrid="false"
-     inkscape:zoom="0.25"
-     inkscape:cx="100.54563"
-     inkscape:cy="-183.11091"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="79.497889"
+     inkscape:cy="518.4283"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg2" />
+     inkscape:current-layer="g3595" />
   <defs
      id="defs4" />
   <rect
@@ -1394,7 +1394,7 @@
   </g>
   <g
      id="g6772-4"
-     transform="matrix(4,0,0,4,-577.38889,-999.29082)"
+     transform="matrix(4,0,0,4,-577.38889,-999.29086)"
      inkscape:export-xdpi="90"
      inkscape:export-ydpi="90"
      inkscape:export-filename="C:\Users\admin\Desktop\spritesheet.png">
@@ -1570,5 +1570,63 @@
        cx="38.302544"
        id="ellipse6770-3"
        style="fill:#806600;fill-opacity:1;stroke:#806600;stroke-width:0.20060028;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  </g>
+  <g
+     id="g3595"
+     transform="matrix(3.8493493,0,0,3.8493499,-227.99126,-1229.622)">
+    <g
+       id="g3644"
+       transform="translate(-88.846186,49.488877)"
+       inkscape:export-filename="C:\Users\admin\Desktop\spritesheet.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <rect
+         y="78.899841"
+         x="7.3154612"
+         height="25.978413"
+         width="25.978416"
+         id="rect3597"
+         style="fill:#ff2a2a;fill-rule:evenodd;stroke:none;stroke-width:0.45999312px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <text
+         transform="matrix(0.70710676,0.70710665,-0.70710691,0.7071068,0,0)"
+         sodipodi:linespacing="125%"
+         id="text3640"
+         y="55.500488"
+         x="69.736549"
+         style="font-style:normal;font-weight:normal;font-size:12.89117146px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Poplar Std';-inkscape-font-specification:'Poplar Std Bold';fill:#e6e6e6"
+           y="55.500488"
+           x="69.736549"
+           id="tspan3642"
+           sodipodi:role="line">EXIT</tspan></text>
+    </g>
+    <g
+       transform="translate(273.76803,78.512705)"
+       id="g3649"
+       inkscape:export-filename="C:\Users\admin\Desktop\exit.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <rect
+         style="fill:#ff2a2a;fill-rule:evenodd;stroke:none;stroke-width:0.45999312px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="rect3651"
+         width="25.978416"
+         height="25.978413"
+         x="7.3154612"
+         y="78.899841" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:12.89117146px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="69.736549"
+         y="55.500488"
+         id="text3653"
+         sodipodi:linespacing="125%"
+         transform="matrix(0.70710676,0.70710665,-0.70710691,0.7071068,0,0)"><tspan
+           sodipodi:role="line"
+           id="tspan3655"
+           x="69.736549"
+           y="55.500488"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Poplar Std';-inkscape-font-specification:'Poplar Std Bold';fill:#e6e6e6">EXIT</tspan></text>
+    </g>
   </g>
 </svg>
