@@ -15,6 +15,7 @@ public class MovePlayer : MonoBehaviour {
 		terrainMatrix = terrainGenerator.terrainMatrix;
 		terrainColumns = terrainGenerator.terrainColumns;
 		terrainRows = terrainGenerator.terrainRows;
+		transform.position = currentPosition + offset;
 	}
 	
 	// Update is called once per frame
@@ -22,23 +23,22 @@ public class MovePlayer : MonoBehaviour {
 		Move ();	
 	}
 	void Move(){
-
-		Vector2 translation = Vector2.zero; 
-
-		if (Input.GetKeyDown("a")) {
-			translation = new Vector2 (-1.0f, 0.0f);
-		} else if (Input.GetKeyDown("d")) {
-			translation = new Vector2 (1.0f, 0.0f);
-		} else if(Input.GetKeyDown("s")){
-			translation = new Vector2 (0.0f,-1.0f);
-		} else if (Input.GetKeyDown("w")){
-			translation = new Vector2 (0.0f,1.0f);    	
-		}		
-		if (CanMove (currentPosition + translation)) {
-			currentPosition += translation; 
-
+		if(Input.anyKey){
+			Vector2 translation = Vector2.zero;
+			if (Input.GetKeyDown("a")) {
+				translation = new Vector2 (-1.0f, 0.0f);
+			} else if (Input.GetKeyDown("d")) {
+				translation = new Vector2 (1.0f, 0.0f);
+			} else if(Input.GetKeyDown("s")){
+				translation = new Vector2 (0.0f,-1.0f);
+			} else if (Input.GetKeyDown("w")){
+				translation = new Vector2 (0.0f,1.0f);    	
+			}		
+			if (CanMove (currentPosition + translation)) {
+				currentPosition += translation; 
+			}
+			transform.position = currentPosition + offset;
 		}
-		transform.position = currentPosition + offset;
 	}
 
 	bool CanMove(Vector2 position){
