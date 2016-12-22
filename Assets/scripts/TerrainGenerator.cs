@@ -7,21 +7,23 @@ using UnityEngine;
  * 2 - Rock
  * 3 - Sand
  */
-
+public enum TerrainType{Grass, Sand, Rock, Box};
 public class TerrainGenerator : MonoBehaviour {
 	public GameObject grassPrefab;
 	public GameObject sandPrefab;
 	public GameObject rockPrefab;
 	public GameObject boxPrefab;
-	public enum TerrainType{Grass, Sand, Rock, Box};
+
 	public TerrainType[,] terrainMatrix;
 	public uint terrainColumns;
 	public uint terrainRows;
+	public GameObject player;
 
 	// Use this for initialization
 	void Start () {
 		CreateTerrain ();
 		DrawTerrain ();
+		player.Spawn ();
 	}
 	
 	// Update is called once per frame
@@ -58,16 +60,16 @@ public class TerrainGenerator : MonoBehaviour {
 			for (int j = 0; j < terrainColumns; j++) {
 				switch(terrainMatrix[i,j]){
 				case TerrainType.Grass:
-					grassPrefab.Spawn (new Vector3 (j, i, 0));
+					grassPrefab.Spawn (new Vector3 (j, i, 1));
 					break;
 				case TerrainType.Sand:
-					sandPrefab.Spawn (new Vector3 (j, i, 0));
+					sandPrefab.Spawn (new Vector3 (j, i, 1));
 					break;
 				case TerrainType.Rock:
-					rockPrefab.Spawn (new Vector3(j, i, 0));
+					rockPrefab.Spawn (new Vector3(j, i, 1));
 					break;
 				case TerrainType.Box:
-					boxPrefab.Spawn (new Vector3 (j, i, 0));
+					boxPrefab.Spawn (new Vector3 (j, i, 1));
 					break;
 				}
 			}
