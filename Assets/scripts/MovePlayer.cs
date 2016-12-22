@@ -3,18 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MovePlayer : MonoBehaviour {
-	private TerrainType[,] terrainMatrix;
 	public Vector2 offset;
 	public Vector2 currentPosition;
-	private uint terrainColumns;
-	private uint terrainRows;
+	private TerrainGenerator terrainGenerator;
 
 	// Use this for initialization
 	void Start () {
-		TerrainGenerator terrainGenerator = GameObject.FindGameObjectWithTag ("GameController").GetComponent<TerrainGenerator> (); 
-		terrainMatrix = terrainGenerator.terrainMatrix;
-		terrainColumns = terrainGenerator.terrainColumns;
-		terrainRows = terrainGenerator.terrainRows;
+		terrainGenerator = GameObject.FindGameObjectWithTag ("GameController").GetComponent<TerrainGenerator> (); 
 		transform.position = currentPosition + offset;
 	}
 	
@@ -43,9 +38,9 @@ public class MovePlayer : MonoBehaviour {
 
 	bool CanMove(Vector2 position){
 		Debug.Log ("Moveu" + position.x +" "+ position.y);
-		if (position.x >= 0f && position.x < terrainColumns
-			&& position.y >= 0f && position.y < terrainRows) {
-			if (terrainMatrix[(int)position.y,(int)position.x] != TerrainType.Box) {
+		if (position.x >= 0f && position.x < terrainGenerator.terrainColumns
+			&& position.y >= 0f && position.y < terrainGenerator.terrainRows) {
+			if (terrainGenerator.terrainMatrix[(int)position.y,(int)position.x] != TerrainType.Box) {
 				return true;
 			}
 		}
