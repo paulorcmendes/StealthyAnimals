@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovePlayer : MonoBehaviour {
-	public Vector2 offset;
-	public Vector2 currentPosition;
-	private TerrainGenerator terrainGenerator;
-
+public class MovePlayer : MatrixMovement{
+	
 	// Use this for initialization
-	void Start () {
-		terrainGenerator = GameObject.FindGameObjectWithTag ("GameController").GetComponent<TerrainGenerator> (); 
-		transform.position = currentPosition + offset;
+	protected override void ChildStart ()
+	{
+		//
 	}
 	
 	// Update is called once per frame
@@ -34,17 +31,5 @@ public class MovePlayer : MonoBehaviour {
 			}
 			transform.position = currentPosition + offset;
 		}
-	}
-
-	bool CanMove(Vector2 position){
-		Debug.Log ("Moveu" + position.x +" "+ position.y);
-		if (position.x >= 0f && position.x < terrainGenerator.terrainColumns
-			&& position.y >= 0f && position.y < terrainGenerator.terrainRows) {
-			if (terrainGenerator.terrainMatrix[(int)position.y,(int)position.x] != TerrainType.Box) {
-				return true;
-			}
-		}
-
-		return false;
 	}
 }
