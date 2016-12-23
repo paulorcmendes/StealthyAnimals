@@ -33,13 +33,13 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1027"
+     inkscape:window-width="1366"
+     inkscape:window-height="715"
      id="namedview392"
      showgrid="false"
      inkscape:zoom="0.35355339"
-     inkscape:cx="494.43262"
-     inkscape:cy="1038.6224"
+     inkscape:cx="447.49633"
+     inkscape:cy="1567.3858"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -1633,14 +1633,14 @@
        id="rect4382"
        width="415.65466"
        height="233.80571"
-       x="27.648655"
+       x="59.228519"
        y="-153.35745"
        inkscape:export-filename="C:\Users\admin\Desktop\pseudomenu[.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <g
        id="g4407-9"
-       transform="matrix(0.23097394,0,0,0.2309739,238.00005,-69.596658)"
+       transform="matrix(0.23097394,0,0,0.2309739,271.7721,-69.596658)"
        inkscape:export-xdpi="1080"
        inkscape:export-ydpi="1080">
       <path
@@ -1691,7 +1691,7 @@
     </g>
     <g
        id="g4444-1"
-       transform="matrix(0.19371104,-0.1257974,0.12579742,0.19371101,219.97875,-27.945388)"
+       transform="matrix(0.19371104,-0.1257974,0.12579742,0.19371101,253.7508,-27.945388)"
        inkscape:export-xdpi="1080"
        inkscape:export-ydpi="1080">
       <path
@@ -1727,7 +1727,7 @@
     </g>
     <g
        id="g4469-5"
-       transform="matrix(0,0.2309739,-0.23097394,0,81.640429,-331.33056)"
+       transform="matrix(0,0.2309739,-0.23097394,0,115.41241,-331.33056)"
        inkscape:export-xdpi="1080"
        inkscape:export-ydpi="1080">
       <g
@@ -1782,7 +1782,7 @@
     </g>
     <g
        id="g4452-8"
-       transform="matrix(0.23097394,0,0,0.2309739,32.473575,16.410632)"
+       transform="matrix(0.23097394,0,0,0.2309739,66.245495,16.410632)"
        inkscape:export-xdpi="1080"
        inkscape:export-ydpi="1080">
       <path
@@ -1823,7 +1823,7 @@
     </g>
     <g
        id="g4461-8"
-       transform="matrix(0.18686184,0.13576305,-0.13576308,0.18686182,-70.504733,-61.201277)"
+       transform="matrix(0.18686184,0.13576305,-0.13576308,0.18686182,-36.732813,-61.201277)"
        inkscape:export-xdpi="1080"
        inkscape:export-ydpi="1080">
       <path
@@ -1859,7 +1859,7 @@
     </g>
     <g
        id="g4481-7"
-       transform="matrix(0.18686184,-0.13576305,0.13576308,0.18686182,337.93451,81.176658)"
+       transform="matrix(0.18686184,-0.13576305,0.13576308,0.18686182,371.70656,81.176658)"
        inkscape:export-xdpi="1080"
        inkscape:export-ydpi="1080">
       <g
@@ -1923,7 +1923,7 @@
     </g>
     <g
        id="g4495-5"
-       transform="matrix(0.23097394,0,0,0.2309739,191.54844,-186.6204)"
+       transform="matrix(0.23097394,0,0,0.2309739,225.32049,-186.6204)"
        inkscape:export-xdpi="1080"
        inkscape:export-ydpi="1080">
       <g
@@ -1977,7 +1977,7 @@
     </g>
     <g
        id="g4418-2"
-       transform="matrix(0.11548697,-0.20002927,0.2000293,0.11548695,-87.294483,-12.104558)"
+       transform="matrix(0.11548697,-0.20002927,0.2000293,0.11548695,-53.522563,-12.104558)"
        inkscape:export-xdpi="1080"
        inkscape:export-ydpi="1080">
       <path
@@ -2023,7 +2023,7 @@
     </g>
     <g
        id="g4436-1"
-       transform="matrix(0.16303794,-0.16360802,0.16360804,0.16303791,-10.606017,75.111138)"
+       transform="matrix(0.16303794,-0.16360802,0.16360804,0.16303791,20.961573,61.150309)"
        inkscape:export-xdpi="1080"
        inkscape:export-ydpi="1080">
       <path
@@ -2059,7 +2059,7 @@
     </g>
     <g
        id="g4428-7"
-       transform="matrix(0.23097394,0,0,0.2309739,313.66898,-230.96558)"
+       transform="matrix(0.23097394,0,0,0.2309739,347.44103,-230.96558)"
        inkscape:export-xdpi="1080"
        inkscape:export-ydpi="1080">
       <path
@@ -2095,7 +2095,7 @@
     </g>
     <g
        id="g4403"
-       transform="matrix(0.66533484,0,0,0.66533474,421.96271,-96.525898)">
+       transform="matrix(0.68364254,0,0,0.66533474,458.9494,-96.525898)">
       <g
          id="g4393">
         <g
