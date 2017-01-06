@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 2b98c60bf59cb1843bb9b3716fe5dd4d
-timeCreated: 1482524964
+guid: 5bd5a41586ee5084bbcd6e630c76b265
+timeCreated: 1483669849
 licenseType: Free
 TrueTypeFontImporter:
   serializedVersion: 4
@@ -9,9 +9,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Sweet Sensations Personal Use
+  fontName: Follow Width Top
   fontNames:
-  - Sweet Sensations Personal Use
+  - Follow Width Top
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
