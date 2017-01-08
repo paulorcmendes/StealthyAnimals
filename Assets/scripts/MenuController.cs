@@ -7,7 +7,7 @@ public class MenuController : MonoBehaviour {
 	public Text highScore;
 	// Use this for initialization
 	void Start () {
-		highScore.text = PlayerPrefs.GetInt ("highScore").ToString ();
+		highScore.text = PlayerPrefs.GetInt ("Score").ToString ();
 	}
 	
 	// Update is called once per frame
