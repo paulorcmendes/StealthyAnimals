@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: ef866603acf8c48438e135209c58fce9
+timeCreated: 1483887844
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: DK Jambo
+  fontNames:
+  - DK Jambo
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
