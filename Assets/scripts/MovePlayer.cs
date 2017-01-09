@@ -41,7 +41,7 @@ public class MovePlayer : MatrixMovement{
 	}
 	void haveIWon(){
 		if (terrainGenerator.terrainMatrix [(int)currentPosition.y, (int)currentPosition.x] == TerrainType.Exit) {
-			//gameStatePlayer.freePlayer ();
+			gameStatePlayer.freePlayer ();
 			Debug.Log("win");
 		}
 	}
