@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 5bd5a41586ee5084bbcd6e630c76b265
+timeCreated: 1483669849
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Follow Width Top
+  fontNames:
+  - Follow Width Top
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
