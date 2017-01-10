@@ -7,6 +7,7 @@ public class MenuController : MonoBehaviour {
 	public Text highScore;
 	// Use this for initialization
 	void Start () {
+		if(highScore != null)
 		highScore.text = PlayerPrefs.GetInt ("Score1").ToString ();
 	}
 	
