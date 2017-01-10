@@ -14,6 +14,9 @@ public class ScoreManager : MonoBehaviour {
 	}
 	public void setHighScore(){
 		int highScore = PlayerPrefs.GetInt ("Score"+scene);
+
+		PlayerPrefs.SetInt ("LatestScore", score);
+
 		Debug.Log ("tentando mudar high score "+highScore);
 		if (score > highScore) {
 			PlayerPrefs.SetInt ("Score"+scene, score);
