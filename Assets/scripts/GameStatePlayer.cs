@@ -24,12 +24,13 @@ public class GameStatePlayer : MonoBehaviour {
 		if (MyState == State.escaping) {
 			this.myState = State.free;
 			scoreManager.setHighScore ();
-			SceneManager.LoadScene("Menu_levels", LoadSceneMode.Single);
+			SceneManager.LoadScene("youWon", LoadSceneMode.Single);
 		}
 	}
 	public void capturePlayer(){
 		if (MyState == State.escaping) {
 			this.myState = State.captured;
+			SceneManager.LoadScene("youLose", LoadSceneMode.Single);
 		}
 	}
 }

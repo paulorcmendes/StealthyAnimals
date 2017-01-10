@@ -66,6 +66,9 @@ public class MenuController : MonoBehaviour {
 	public void bt_Play(){
 		SceneManager.LoadScene("Menu_levels", LoadSceneMode.Single);
 	}	
+	public void bt_Menu(){
+		SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+	}
 
 	public void bt_1(){
 		SceneManager.LoadScene("level1", LoadSceneMode.Single);
