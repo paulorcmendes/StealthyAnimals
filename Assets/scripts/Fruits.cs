@@ -7,6 +7,7 @@ public class Fruits : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D obj){
 		if(obj.CompareTag("Player")){
 			scoreManager.GetComponent<ScoreManager>().score+=10;
+			gameObject.GetComponent<AudioSource> ().Play ();
 		}
 	}
 
