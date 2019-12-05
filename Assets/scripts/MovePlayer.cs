@@ -30,7 +30,7 @@ public class MovePlayer : MatrixMovement{
 			}		
 			if (CanMove (currentPosition + translation)) {
 				currentPosition += translation; 
-				haveIWon ();
+				//haveIWon (currentPosition);
 			}
 			transform.position = currentPosition + offset;
 		}
@@ -39,10 +39,15 @@ public class MovePlayer : MatrixMovement{
 		if (coll.gameObject.CompareTag ("Guard")) {
 			Debug.Log ("cap");
 			gameStatePlayer.capturePlayer ();
-		}			
-	}
-	protected void haveIWon(){
-		if (terrainGenerator.terrainMatrix [(int)currentPosition.y, (int)currentPosition.x] == TerrainType.Exit) {
+		}
+        if (coll.gameObject.CompareTag("Exit"))
+        {
+            gameStatePlayer.freePlayer();
+            Debug.Log("win");
+        }
+    }
+	protected void haveIWon(Vector2 position){
+		if (terrainGenerator.terrainMatrix [(int)position.y, (int)position.x] == TerrainType.Exit) {
 			gameStatePlayer.freePlayer ();
 			Debug.Log("win");
 		}

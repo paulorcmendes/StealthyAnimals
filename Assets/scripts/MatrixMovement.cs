@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public abstract class MatrixMovement : MonoBehaviour
 {
@@ -16,11 +17,11 @@ public abstract class MatrixMovement : MonoBehaviour
 
 	protected bool CanMove(Vector2 position){
 		//Debug.Log ("Moveu" + position.x +" "+ position.y);
-		if (position.x >= 0f && position.x < terrainGenerator.terrainColumns
-			&& position.y >= 0f && position.y < terrainGenerator.terrainRows) {
-			if (terrainGenerator.terrainMatrix[(int)position.y,(int)position.x] != TerrainType.Box) {
+		if (position.x >= offset.x && position.x < terrainGenerator.terrainColumns-offset.x
+			&& position.y >= offset.y && position.y < terrainGenerator.terrainRows-offset.y) {
+			//if (terrainGenerator.terrainMatrix[(int) position.y,(int)position.x] != TerrainType.Box) {
 				return true;
-			}
+			//}
 		}
 
 		return false;

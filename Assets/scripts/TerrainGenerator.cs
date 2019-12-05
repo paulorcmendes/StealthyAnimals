@@ -23,8 +23,8 @@ public class TerrainGenerator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		CreateTerrain ();
-		DrawTerrain ();
+		//CreateTerrain ();
+		//DrawTerrain ();
 		player.Spawn ();
 	}
 	

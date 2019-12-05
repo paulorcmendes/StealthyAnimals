@@ -30,12 +30,14 @@ public class MovePlayerSmooth : MovePlayer
             {
                 translation_up = new Vector2(0.0f, 1.0f);
             }
-            Vector3 translation = (translation_left+translation_right+translation_up+translation_down).normalized;
+            Vector3 translation = (translation_left + translation_right + translation_up + translation_down).normalized * Time.deltaTime * speed;
+            //Vector3 offset3 = offset;
             if (CanMove(transform.position + translation))
             {
                 //currentPosition += translation;
-                transform.Translate(translation*Time.deltaTime*speed);
-                haveIWon();
+                transform.Translate(translation);
+                
+                //haveIWon(transform.position);
             }
         }
     }

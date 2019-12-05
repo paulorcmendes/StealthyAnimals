@@ -8,12 +8,7 @@ public class Fruits : MonoBehaviour {
 		if(obj.CompareTag("Player")){
 			scoreManager.GetComponent<ScoreManager>().score+=10;
 			gameObject.GetComponent<AudioSource> ().Play ();
-		}
-	}
-
-	void OnTriggerExit2D(Collider2D obj){
-		if(obj.CompareTag("Player")){
-			Destroy(gameObject);
-		}
+            Destroy(gameObject);
+        }
 	}
 }
