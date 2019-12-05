@@ -7,11 +7,11 @@ using System.Linq;
 public class ObjectiveGuard : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float speed;
+    public float GuardSpeed;
+    public float ChaseSpeed;
+    private float speed;
     private GameObject player;
     private GameObject[] graph;
-    [Range(0,1)]
-    public float heuristicImportance;
     void Start()
     {
         graph = GameObject.FindGameObjectsWithTag("StealthWaypoint");
@@ -24,16 +24,30 @@ public class ObjectiveGuard : MonoBehaviour
         //Vector3 objective = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         player = GameObject.FindGameObjectWithTag("Player");
 
+        Vector3 objective;
 
+        RaycastHit2D hit = Physics2D.CircleCast(transform.position, GetComponent<CircleCollider2D>().radius+0.01f, player.transform.position - transform.position);
+             
 
-        Vector3 objective = GetNextWaypoint();
+        if (hit.collider != null && hit.collider.gameObject.CompareTag("Player"))
+        {
+            //Debug.Log(hit.collider.gameObject.name);
+            speed = ChaseSpeed;
+            objective = player.transform.position;
+        }
+        else
+        {
+            speed = GuardSpeed;
+            objective = GetNextWaypoint();
+        }
+                
         Vector3 vecDiff = objective - transform.position;
         
-        if(vecDiff.magnitude > 0.5f)
+        if(vecDiff.magnitude > 0.3f)
         {
             Vector2 movVector = vecDiff.normalized * speed * Time.deltaTime;
-            
-            transform.Translate(movVector);
+            transform.rotation = Quaternion.Euler(0,0,Vector2.SignedAngle(Vector2.right, movVector));
+            transform.Translate(movVector, Space.World);
         } 
     }
 
@@ -76,7 +90,7 @@ public class ObjectiveGuard : MonoBehaviour
 
         while (true)
         {
-            var min = open.OrderBy(kvp => kvp.Value).First();
+            var min = open.OrderBy(kvp => kvp.Value+DistGameObj(player, kvp.Key)).First();
             GameObject current = min.Key;
             float value = min.Value;
 
@@ -110,24 +124,26 @@ public class ObjectiveGuard : MonoBehaviour
             }
         }
         GameObject cur = goal;
-        Stack<GameObject> path = new Stack<GameObject>();
+        //Stack<GameObject> path = new Stack<GameObject>();
+
         while (cur != null)
         {
-            path.Push(cur);
-            cur = father[cur];            
+            //path.Push(cur);
+            RaycastHit2D hit = Physics2D.CircleCast(transform.position, GetComponent<CircleCollider2D>().radius + 0.0001f, cur.transform.position - transform.position);
+
+            if (hit.collider == null || hit.distance > DistGameObj(gameObject, cur))
+            {
+                return cur.transform.position;
+            }
+
+            cur = father[cur];
         }
-        GameObject nextWaypoint;
-        if(path.Count>1)
-        {
-            path.Pop();            
-        }
-        nextWaypoint = path.Pop();
-        Debug.Log(nextWaypoint.name);
-        return nextWaypoint.transform.position;
+
+        return start.transform.position;
     }
     private float Rating(GameObject node)
     {
-        return Vector3.Distance(node.transform.position, transform.position)*(1-heuristicImportance) + Vector3.Distance(node.transform.position, player.transform.position)*heuristicImportance;
+        return Vector3.Distance(node.transform.position, transform.position);
     }
     private float DistGameObj(GameObject g1, GameObject g2)
     {
