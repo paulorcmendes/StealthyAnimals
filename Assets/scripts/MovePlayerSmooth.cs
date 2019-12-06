@@ -52,7 +52,7 @@ public class MovePlayerSmooth : MovePlayer
         if (Input.GetMouseButton(0) && gameStatePlayer.MyState == State.escaping)
         {
 
-            Vector3 translation = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized * Time.deltaTime * speed * 2;
+            Vector3 translation = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized * Time.deltaTime * speed*1.1f;
             translation.z = 0f;
             if (CanMove(transform.position + translation))
             {
