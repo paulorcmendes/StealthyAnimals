@@ -12,9 +12,13 @@ public class ObjectiveGuard : MonoBehaviour
     private float speed;
     private GameObject player;
     private GameObject[] graph;
+    public float RotationSpeed;
+
+    private Light light;
     void Start()
     {
         graph = GameObject.FindGameObjectsWithTag("StealthWaypoint");
+        light = GetComponentInChildren<Light>();
     }
 
     // Update is called once per frame
@@ -33,10 +37,14 @@ public class ObjectiveGuard : MonoBehaviour
         {
             //Debug.Log(hit.collider.gameObject.name);
             speed = ChaseSpeed;
+            light.color = Color.red;
+            light.intensity = 5;
             objective = player.transform.position;
         }
         else
         {
+            light.color = Color.white;
+            light.intensity = 1;
             speed = GuardSpeed;
             objective = GetNextWaypoint();
         }
@@ -46,7 +54,9 @@ public class ObjectiveGuard : MonoBehaviour
         if(vecDiff.magnitude > 0.3f)
         {
             Vector2 movVector = vecDiff.normalized * speed * Time.deltaTime;
-            transform.rotation = Quaternion.Euler(0,0,Vector2.SignedAngle(Vector2.right, movVector));
+
+
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.right, movVector)), Time.time*RotationSpeed); 
             transform.Translate(movVector, Space.World);
         } 
     }
