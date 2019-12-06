@@ -5,9 +5,15 @@ using UnityEngine;
 public class MovePlayerSmooth : MovePlayer
 {
     public float speed = 5;
+
     protected override void Move()
     {
-        
+        KeyBoardMove();
+        //MouseMove();
+        DragMove();
+    }
+    private void KeyBoardMove()
+    {
         if (gameStatePlayer.MyState == State.escaping)
         {
             Vector2 translation_left = Vector2.zero;
@@ -36,9 +42,61 @@ public class MovePlayerSmooth : MovePlayer
             {
                 //currentPosition += translation;
                 transform.Translate(translation);
-                
+
                 //haveIWon(transform.position);
             }
+        }
+    }
+    private void MouseMove()
+    {
+        if (Input.GetMouseButton(0) && gameStatePlayer.MyState == State.escaping)
+        {
+
+            Vector3 translation = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized * Time.deltaTime * speed * 2;
+            translation.z = 0f;
+            if (CanMove(transform.position + translation))
+            {
+                //currentPosition += translation;
+                transform.Translate(translation);
+
+                //haveIWon(transform.position);
+            }
+            Debug.Log(translation);
+
+        }
+    }
+
+    private void DragMove()
+    {
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved && gameStatePlayer.MyState == State.escaping)
+        {
+            // Get movement of the finger since last frame
+            Vector3 translation = Input.GetTouch(0).deltaPosition.normalized * Time.deltaTime*speed;
+            translation.z = 0f;
+            // Move object across X plane
+            if (CanMove(transform.position + translation))
+            {
+                //currentPosition += translation;
+                transform.Translate(translation);
+
+                //haveIWon(transform.position);
+            }
+            Debug.Log(translation);
+        }
+
+    }
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.CompareTag("Guard"))
+        {
+            Debug.Log("cap");
+            gameStatePlayer.capturePlayer();
+        }
+        if (coll.gameObject.CompareTag("Exit"))
+        {
+            gameStatePlayer.freePlayer();
+            Debug.Log("win");
         }
     }
 }

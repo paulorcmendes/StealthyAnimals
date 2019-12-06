@@ -12,14 +12,17 @@ public class ScoreManager : MonoBehaviour {
 	void Update () {
 		scoreT.text = score.ToString ();
 	}
+    public void AddScore(int s)
+    {
+        score += s;
+    }
 	public void setHighScore(){
-		int highScore = PlayerPrefs.GetInt ("Score"+scene);
+		int highScore = PlayerPrefs.GetInt ("HighScore");
 
-		PlayerPrefs.SetInt ("LatestScore", score);
-
+        PlayerPrefs.SetInt("LatestScore", score);
 		Debug.Log ("tentando mudar high score "+highScore);
 		if (score > highScore) {
-			PlayerPrefs.SetInt ("Score"+scene, score);
+			PlayerPrefs.SetInt ("HighScore", score);
 		}
 	}
 }

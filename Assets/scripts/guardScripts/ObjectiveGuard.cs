@@ -13,12 +13,13 @@ public class ObjectiveGuard : MonoBehaviour
     private GameObject player;
     private GameObject[] graph;
     public float RotationSpeed;
+    public float SeenDistance;
 
-    private Light light;
+    private Light my_light;
     void Start()
     {
         graph = GameObject.FindGameObjectsWithTag("StealthWaypoint");
-        light = GetComponentInChildren<Light>();
+        my_light = GetComponentInChildren<Light>();
     }
 
     // Update is called once per frame
@@ -33,18 +34,18 @@ public class ObjectiveGuard : MonoBehaviour
         RaycastHit2D hit = Physics2D.CircleCast(transform.position, GetComponent<CircleCollider2D>().radius+0.01f, player.transform.position - transform.position);
              
 
-        if (hit.collider != null && hit.collider.gameObject.CompareTag("Player"))
+        if (hit.collider != null && hit.collider.gameObject.CompareTag("Player") && hit.distance < SeenDistance)
         {
             //Debug.Log(hit.collider.gameObject.name);
             speed = ChaseSpeed;
-            light.color = Color.red;
-            light.intensity = 5;
+            my_light.color = Color.red;
+            my_light.intensity = 5;
             objective = player.transform.position;
         }
         else
         {
-            light.color = Color.white;
-            light.intensity = 1;
+            my_light.color = Color.white;
+            my_light.intensity = 1;
             speed = GuardSpeed;
             objective = GetNextWaypoint();
         }

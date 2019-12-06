@@ -13,8 +13,6 @@ public class TerrainGenerator : MonoBehaviour {
 	public GameObject grassPrefab;
 	public GameObject sandPrefab;
 	public GameObject rockPrefab;
-	public GameObject boxPrefab;
-	public GameObject exitPrefab;
 
 	public TerrainType[,] terrainMatrix;
 	public uint terrainColumns;
@@ -24,7 +22,7 @@ public class TerrainGenerator : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//CreateTerrain ();
-		//DrawTerrain ();
+		DrawTerrain ();
 		player.Spawn ();
 	}
 	
@@ -61,8 +59,9 @@ public class TerrainGenerator : MonoBehaviour {
 	void DrawTerrain(){
 		//x é coluna - j
 		//y é linha - i
-		for (int i = 0; i < terrainRows; i++) {
-			for (int j = 0; j < terrainColumns; j++) {
+		for (int i = 0; i < terrainColumns; i++) {
+			for (int j = 0; j < terrainRows; j++) {
+                /*
 				switch(terrainMatrix[i,j]){
 				case TerrainType.Grass:
 					grassPrefab.Spawn (new Vector3 (j, i, 1));
@@ -73,14 +72,29 @@ public class TerrainGenerator : MonoBehaviour {
 				case TerrainType.Rock:
 					rockPrefab.Spawn (new Vector3(j, i, 1));
 					break;
-				case TerrainType.Box:
-					boxPrefab.Spawn (new Vector3 (j, i, 1));
-					break;
-				case TerrainType.Exit:
-					exitPrefab.Spawn (new Vector3 (j, i, 1));
-					break;
 				}
-			}
+                */
+                System.Random rd = new System.Random(System.DateTime.Now.Millisecond);
+                int choice = rd.Next(3);
+                GameObject choiceGO;
+
+                switch (choice)
+                {
+                    case 0:
+                        choiceGO = grassPrefab;
+                        break;
+                    case 1:
+                        choiceGO = sandPrefab;
+                        break;
+                    case 2:
+                        choiceGO = rockPrefab;
+                        break;
+                    default:
+                        choiceGO = rockPrefab;
+                        break;
+                }
+                choiceGO.Spawn(new Vector3(i, j, 1));
+            }
 		}
 	}
 }
