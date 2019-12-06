@@ -101,7 +101,7 @@ public class ObjectiveGuard : MonoBehaviour
 
         while (true)
         {
-            var min = open.OrderBy(kvp => kvp.Value+DistGameObj(player, kvp.Key)).First();
+            var min = open.OrderBy(kvp => kvp.Value/*+DistGameObj(player, kvp.Key)*/).First();
             GameObject current = min.Key;
             float value = min.Value;
 
@@ -140,9 +140,9 @@ public class ObjectiveGuard : MonoBehaviour
         while (cur != null)
         {
             //path.Push(cur);
-            RaycastHit2D hit = Physics2D.CircleCast(transform.position, GetComponent<CircleCollider2D>().radius + 0.0001f, cur.transform.position - transform.position);
+            RaycastHit2D hit = Physics2D.CircleCast(transform.position, GetComponent<CircleCollider2D>().radius, cur.transform.position - transform.position);
 
-            if (hit.collider == null || hit.distance > DistGameObj(gameObject, cur))
+            if (hit.collider == null || !hit.collider.gameObject.CompareTag("Box") || hit.distance > DistGameObj(gameObject, cur))
             {
                 return cur.transform.position;
             }
