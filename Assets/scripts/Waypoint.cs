@@ -26,7 +26,7 @@ public class Waypoint : MonoBehaviour
             }
             else
             {
-                RaycastHit2D hit = Physics2D.CircleCast(transform.position, guard.GetComponent<CircleCollider2D>().radius + 0.0001f, w.transform.position - transform.position);
+                RaycastHit2D hit = Physics2D.CircleCast(transform.position, guard.GetComponent<CircleCollider2D>().radius*1.5f, w.transform.position - transform.position);
 
                 if (hit.collider != null && hit.collider.gameObject.CompareTag("Box") && hit.distance < wDist)
                 {

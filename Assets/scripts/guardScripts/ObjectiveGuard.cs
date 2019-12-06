@@ -39,7 +39,7 @@ public class ObjectiveGuard : MonoBehaviour
             //Debug.Log(hit.collider.gameObject.name);
             speed = ChaseSpeed;
             my_light.color = Color.red;
-            my_light.intensity = 5;
+            my_light.intensity = 10;
             objective = player.transform.position;
         }
         else
@@ -52,14 +52,13 @@ public class ObjectiveGuard : MonoBehaviour
                 
         Vector3 vecDiff = objective - transform.position;
         
-        if(vecDiff.magnitude > 0.3f)
-        {
-            Vector2 movVector = vecDiff.normalized * speed * Time.deltaTime;
+        
+        Vector2 movVector = vecDiff.normalized * speed * Time.deltaTime;
 
 
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.right, movVector)), Time.time*RotationSpeed); 
-            transform.Translate(movVector, Space.World);
-        } 
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.right, movVector)), Time.time*RotationSpeed); 
+        transform.Translate(movVector, Space.World);
+        
     }
 
     private Vector3 GetNextWaypoint()
@@ -67,21 +66,26 @@ public class ObjectiveGuard : MonoBehaviour
         GameObject currentWaypoint, goalWaypoint;
 
         currentWaypoint = graph[0];
-        goalWaypoint = graph[0];
+        goalWaypoint = null;
 
         for (int i = 0; i < graph.Length; i++)
-        {
-            if(Vector3.Distance(transform.position, graph[i].transform.position) < Vector3.Distance(transform.position, currentWaypoint.transform.position))
+        {           
+            if (DistGameObj(gameObject, graph[i])< DistGameObj(gameObject, currentWaypoint))
             {
                 currentWaypoint = graph[i];
             }
-            if (Vector3.Distance(player.transform.position, graph[i].transform.position) < Vector3.Distance(player.transform.position, goalWaypoint.transform.position))
+
+            RaycastHit2D hit = Physics2D.Raycast(graph[i].transform.position, player.transform.position - graph[i].transform.position);
+
+            if (hit.collider != null && hit.collider.gameObject.CompareTag("Player"))
             {
-                goalWaypoint = graph[i];
+                if (goalWaypoint == null || DistGameObj(player, graph[i]) < DistGameObj(player, goalWaypoint))
+                {
+                    goalWaypoint = graph[i];
+                }
             }
         }
-
-
+        
         return AStarPartial(currentWaypoint, goalWaypoint);
     }
 
@@ -101,7 +105,7 @@ public class ObjectiveGuard : MonoBehaviour
 
         while (true)
         {
-            var min = open.OrderBy(kvp => kvp.Value/*+DistGameObj(player, kvp.Key)*/).First();
+            var min = open.OrderBy(kvp => kvp.Value+DistGameObj(player, kvp.Key)).First();
             GameObject current = min.Key;
             float value = min.Value;
 
@@ -136,28 +140,25 @@ public class ObjectiveGuard : MonoBehaviour
         }
         GameObject cur = goal;
         //Stack<GameObject> path = new Stack<GameObject>();
-
+        String path = "Path: ";
         while (cur != null)
         {
             //path.Push(cur);
-            RaycastHit2D hit = Physics2D.CircleCast(transform.position, GetComponent<CircleCollider2D>().radius, cur.transform.position - transform.position);
-
+            RaycastHit2D hit = Physics2D.CircleCast(transform.position, GetComponent<CircleCollider2D>().radius*1.1f, cur.transform.position - transform.position);
+            path += cur.name + " ";
             if (hit.collider == null || !hit.collider.gameObject.CompareTag("Box") || hit.distance > DistGameObj(gameObject, cur))
             {
+                Debug.Log(path+" next: "+cur.name);
                 return cur.transform.position;
             }
 
             cur = father[cur];
         }
-
+        
         return start.transform.position;
-    }
-    private float Rating(GameObject node)
-    {
-        return Vector3.Distance(node.transform.position, transform.position);
     }
     private float DistGameObj(GameObject g1, GameObject g2)
     {
-        return Vector3.Distance(g1.transform.position, g2.transform.position);
+        return Vector2.Distance(g1.transform.position, g2.transform.position);
     }
 }
